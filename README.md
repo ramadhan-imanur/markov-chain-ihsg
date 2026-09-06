@@ -1,54 +1,28 @@
 # Pemodelan Rantai Markov untuk Pergerakan IHSG
 
-Proyek ini bertujuan untuk memodelkan perubahan Indeks Harga Saham Gabungan (IHSG) menggunakan pendekatan Rantai Markov (*Markov Chain*) diskrit dengan tiga keadaan: **Turun**, **Stabil**, dan **Naik**. Keadaan ini ditentukan berdasarkan persentase *return* harian dari IHSG.
+Proyek ini memodelkan pergerakan harian Indeks Harga Saham Gabungan (IHSG) menggunakan pendekatan Rantai Markov orde-1. Nilai indeks harian diubah menjadi *return* persentase, kemudian dikelompokkan ke dalam tiga kondisi operasional: Naik, Stabil, dan Turun (berdasarkan ambang batas $\pm0.5\%$). Model ini menghitung probabilitas transisi arah pasar berdasarkan frekuensi historis, dengan asumsi bahwa pergerakan harga hari esok diproyeksikan murni dari kondisi perdagangan hari ini.
 
-## 📂 Struktur Direktori
+## Hasil dan Implikasi
 
-```text
-.
-├── code/                              <- Berisi source code, dataset, dan eksperimen
-│   ├── data/
-│   │   └── raw/
-│   │       └── ihsg_daily.csv         <- Data historis harian IHSG
-│   └── notebooks/
-│       ├── 01_data_collection.ipynb       <- Pengumpulan data (Yahoo Finance) & Preprocessing
-│       └── 02_markov_chain_modeling.ipynb <- Pemodelan Rantai Markov & Analisis Probabilitas
-├── report/                            <- Laporan penelitian 
-│   └── laporan.pdf                    <- Laporan akhir penelitian
-├── .gitignore                         <- File yang diabaikan oleh Git
-└── README.md                          <- Dokumentasi proyek
-```
+Berdasarkan olahan data historis 823 hari perdagangan, matriks peluang transisi menunjukkan bahwa volatilitas ekstrem di pasar modal domestik cenderung teredam dalam jangka pendek.
 
-*(Catatan: Folder `deskripsi`, `.raw`, serta file internal laporan seperti `laporan.tex` tidak diunggah ke repositori ini sesuai dengan kebijakan proyek.)*
+Peluang kejatuhan atau lonjakan pasar yang terjadi secara beruntun tertahan di angka sekitar 30\%. Secara statistik, pasar paling sering mengoreksi pergerakannya kembali ke kondisi stabil pada hari perdagangan berikutnya. Dalam waktu lima hari bursa, probabilitas pasar sudah mereset memorinya dan mencapai titik stasioner (46,0\% stabil, 29,2\% naik, 24,7\% turun). 
 
-## 📊 Metodologi
+Distribusi empiris ini memberikan gambaran strategis bagi para pelaku pasar. Angka pembalikan arah yang tinggi menunjukkan bahwa strategi mengejar momentum (*chasing the market*) atau kepanikan (*panic selling*) harian berisiko tinggi. Di sisi lain, akumulasi peluang stabil dan naik yang dominan (75,2\%) dalam jangka menengah memberikan landasan empiris untuk mempertahankan portofolio investasi pasif jangka panjang (*buy and hold*).
 
-1. **Pengumpulan Data**: Data IHSG diunduh langsung dari Yahoo Finance.
-2. **Preprocessing**: IHSG yang merupakan data kontinu diubah menjadi persentase return harian:
-   $$ R_t = \frac{I_t - I_{t-1}}{I_{t-1}} \times 100\% $$
-3. **Pemodelan Markov Chain**: 
-   - Mengestimasi probabilitas transisi antar keadaan menggunakan data historis.
-   - Mengasumsikan probabilitas keadaan di masa depan hanya bergantung pada keadaan saat ini (Sifat Markov).
-4. **Prediksi Probabilitas**: Menghitung probabilitas pergerakan IHSG pada dua ($n=2$) dan lima ($n=5$) hari perdagangan berikutnya.
+## Cara Menjalankan
 
-## 🚀 Cara Menjalankan Proyek
-
-1. **Clone repository ini**
+1. Klon repositori ini:
    ```bash
    git clone <url-repo-anda>
    cd <nama-folder-repo>
    ```
 
-2. **Install library yang dibutuhkan**
-   Proyek ini memerlukan library Python standar untuk analisis data:
+2. Pasang dependensi yang dibutuhkan:
    ```bash
    pip install pandas numpy matplotlib seaborn yfinance jupyter
    ```
 
-3. **Jalankan Jupyter Notebook**
-   Buka direktori `code/notebooks/` dan jalankan notebook secara berurutan:
-   - Mulai dari `01_data_collection.ipynb` untuk mengambil dan memperbarui data IHSG terbaru.
-   - Lanjutkan ke `02_markov_chain_modeling.ipynb` untuk melihat hasil analisis pemodelan Rantai Markov.
-
-## 👥 Penulis
-- Tugas 2 Mata Kuliah Proses Stokastik
+3. Buka dan jalankan Jupyter Notebook di dalam folder `code/notebooks/` secara berurutan:
+   - `01_data_collection.ipynb`: Mengunduh data historis IHSG terbaru dari Yahoo Finance dan melakukan standardisasi format.
+   - `02_markov_chain_modeling.ipynb`: Menghitung matriks probabilitas transisi, memproyeksikan pergerakan jangka pendek ($P^2$ dan $P^5$), dan memvalidasi konvergensi.
