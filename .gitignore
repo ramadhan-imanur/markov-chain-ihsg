@@ -1,0 +1,20 @@
+﻿# Folder yang tidak di-upload ke GitHub
+deskripsi/
+.raw/
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+*.class
+.ipynb_checkpoints
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Hanya tampilkan laporan.pdf di folder report (menyembunyikan .tex, gambar, dan log latex)
+report/*
+!report/laporan.pdf
