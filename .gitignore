@@ -1,4 +1,4 @@
-﻿# Folder yang tidak di-upload ke GitHub
+﻿# Folder 
 deskripsi/
 .raw/
 
@@ -15,6 +15,6 @@ ENV/
 env.bak/
 venv.bak/
 
-# Hanya tampilkan laporan.pdf di folder report (menyembunyikan .tex, gambar, dan log latex)
+# Hanya tampilkan laporan.pdf 
 report/*
 !report/laporan.pdf
