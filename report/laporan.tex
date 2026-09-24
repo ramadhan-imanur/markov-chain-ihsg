@@ -1,0 +1,328 @@
+\documentclass[12pt,a4paper]{article}
+
+% ==================================================
+% PENGATURAN HALAMAN
+% ==================================================
+\usepackage[
+a4paper,
+top=4cm,
+bottom=3cm,
+left=4cm,
+right=3cm,
+headsep=2cm,
+footskip=1.5cm,
+headheight=15pt
+]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\thepage}
+
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\thepage}
+}
+
+% ==================================================
+% FONT DAN SPASI
+% ==================================================
+\usepackage{mathptmx}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+\setlength{\parindent}{1.25cm}
+\setcounter{secnumdepth}{3}
+
+% ==================================================
+% MATEMATIKA
+% ==================================================
+\usepackage{amsmath,amssymb}
+\numberwithin{equation}{section}
+
+\AtBeginDocument{
+  \setlength{\abovedisplayskip}{4pt}
+  \setlength{\belowdisplayskip}{4pt}
+  \setlength{\abovedisplayshortskip}{4pt}
+  \setlength{\belowdisplayshortskip}{4pt}
+}
+
+% ==================================================
+% GAMBAR DAN TABEL
+% ==================================================
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[labelsep=space]{caption}
+\usepackage{subcaption}
+
+\usepackage[indonesian]{babel}
+\usepackage{microtype}
+
+\addto\captionsindonesian{
+  \renewcommand{\figurename}{Gambar}
+  \renewcommand{\tablename}{Tabel}
+  \renewcommand{\refname}{DAFTAR RUJUKAN}
+  \renewcommand{\contentsname}{DAFTAR ISI}
+}
+
+% ==================================================
+% LIST
+% ==================================================
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{
+    label=\arabic*.,
+    itemsep=0pt,
+    topsep=0pt,
+    parsep=0pt,
+    partopsep=0pt,
+    leftmargin=*
+}
+\setlist[enumerate,2]{
+    label=\alph*.,
+    itemsep=0pt,
+    topsep=0pt,
+    parsep=0pt,
+    partopsep=0pt,
+    leftmargin=*
+}
+
+% ==================================================
+% FORMAT BAB, SUBBAB, DAN ANAK SUBBAB
+% ==================================================
+\usepackage{titlesec}
+
+% Format Bab
+\renewcommand{\thesection}{\Roman{section}}
+\titleformat{\section}[display]
+{\centering\bfseries}
+{\fontsize{14pt}{16pt}\selectfont BAB \thesection}
+{0.3cm}
+{\fontsize{14pt}{16pt}\selectfont}
+\titlespacing*{\section}{0pt}{0pt}{1.5em}
+
+\titleformat{name=\section,numberless}[block]
+{\centering\bfseries\fontsize{14pt}{16pt}\selectfont}
+{}
+{0pt}
+{}
+\titlespacing*{name=\section,numberless}{0pt}{0pt}{1.5em}
+
+% \newcommand{\sectionbreak}{\clearpage\thispagestyle{plain}}
+
+% Format Subbab
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\titleformat{\subsection}[block]
+{\centering\bfseries\normalsize}
+{\thesubsection}
+{0.75em}
+{}
+\titlespacing*{\subsection}{0pt}{1em}{0.5em}
+
+% Format Anak Subbab
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\titleformat{\subsubsection}[block]
+{\centering\normalsize\itshape}
+{\thesubsubsection}
+{0.75em}
+{}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.5em}
+
+% ==================================================
+% HYPERLINK
+% ==================================================
+% \usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+
+% ==================================================
+% HEADER FOOTER
+% ==================================================
+\pagenumbering{roman}
+
+\begin{document}
+
+% ==================================================
+% COVER DEPAN
+% ==================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+
+{\fontsize{16pt}{20pt}\selectfont\bfseries
+LAPORAN TUGAS KELOMPOK\par}
+
+\vspace{0.3cm}
+
+{\fontsize{14pt}{18pt}\selectfont\bfseries
+PEMODELAN RANTAI MARKOV PADA PERGERAKAN HARIAN INDEKS HARGA SAHAM GABUNGAN (IHSG)\par}
+
+\vspace{0.8cm}
+
+\vfill
+
+% Logo Universitas
+\includegraphics[width=5cm]{logo_uns.png}
+
+\vfill
+
+% Dosen Pengampu
+{\fontsize{12pt}{14pt}\selectfont\bfseries
+Dosen Pengampu
+\par}
+
+\vspace{0.1cm}
+
+{\fontsize{12pt}{14pt}\selectfont
+Ade Susanti S.Si., M.Si.
+\par}
+
+\vspace{1cm}
+
+% Bagian Penyusun
+{\fontsize{12pt}{14pt}\selectfont\bfseries
+Disusun Oleh\par
+}
+
+{\fontsize{12pt}{14pt}\selectfont\bfseries
+Kelompok 1
+\par}
+
+
+
+\vspace{0.2cm}
+
+{\fontsize{12pt}{14pt}\selectfont
+\begin{tabular}{ll}
+Achika Vigo Azhyra              & M0125001 \\
+Fadhila Hardi Ningrum           & M0124004 \\
+Fawwaz Absyar Rifai             & M0125044 \\
+Karunia Febyayu Puspitaningtyas & M0124010 \\
+Ramadhan Imanur Rochim          & M0124015 \\
+\end{tabular}
+}
+
+\vfill
+
+{\fontsize{12pt}{14pt}\selectfont\bfseries
+PROGRAM STUDI MATEMATIKA\\
+FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM\\
+UNIVERSITAS SEBELAS MARET\\
+SURAKARTA\\
+2026
+\par}
+
+\end{center}       
+\end{titlepage}
+
+\newpage
+\pagenumbering{arabic}
+
+
+% ==================================================
+% ISI
+% ==================================================
+\titleformat{\subsection}[block]
+  {\centering\normalfont\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+  
+{\centering \section{PENDAHULUAN}\par} % Membatasi efek centering HANYA untuk BAB I
+
+\subsection{Definisi Model, Ruang Keadaan, dan Sifat Markov}
+Pasar modal memiliki peranan yang sangat krusial dalam perekonomian suatu negara sebagai sarana investasi bagi masyarakat dan pembiayaan bagi dunia usaha. Di Indonesia, indikator utama yang menggambarkan kinerja dan pergerakan harga seluruh saham yang tercatat di Bursa Efek Indonesia (BEI) adalah Indeks Harga Saham Gabungan (IHSG). Pergerakan IHSG bersifat sangat dinamis, fluktuatif, dan dipengaruhi oleh berbagai faktor internal maupun eksternal.
+
+Untuk memodelkan dan menganalisis perilaku fluktuatif tersebut, pendekatan stokastik menjadi salah satu metode kuantitatif yang sangat relevan. Laporan ini mengkaji dinamika pergerakan harian Indeks Harga Saham Gabungan (IHSG) menggunakan pendekatan Rantai Markov (\textit{Markov Chain}) orde pertama. IHSG dipilih sebagai objek studi karena posisinya sebagai indikator utama kinerja pasar modal Indonesia yang memiliki tingkat fluktuasi harian tinggi. 
+
+Didefinisikan $X_t$ sebagai variabel acak yang menyatakan status pergerakan IHSG pada hari perdagangan ke-$t$. Ruang keadaan $S$ dibagi menjadi tiga kondisi operasional:
+$$ S = \{\text{-1 (Turun)}, \text{0 (Stabil)}, \text{+1 (Naik)}\}. $$
+Keadaan naik didefinisikan ketika \textit{return} harian $> +0,5\%$, keadaan stabil ketika \textit{return} harian antara $-0,5\%$ hingga $+0,5\%$, dan keadaan turun ketika \textit{return} harian $< -0,5\%$. Dengan definisi tersebut, tujuan model ini bukanlah untuk memprediksi angka pasti IHSG di masa depan, melainkan mengestimasi peluang transisi keadaan IHSG dari satu hari ke hari perdagangan berikutnya.
+
+\subsection{Asumsi dan Batasan Pemodelan}
+Proses stokastik dalam pemodelan IHSG ini memenuhi sifat Markov orde pertama karena probabilitas keadaan IHSG pada keesokan hari diasumsikan hanya bergantung pada keadaan hari ini, yaitu
+    $$ P(X_{t+1} = j \mid X_t = i, X_{t-1}, \dots, X_0) = P(X_{t+1} = j \mid X_t = i) $$ 
+Namun demikian, keterbatasan asumsi ini dapat terjadi apabila pergerakan IHSG tidak hanya dipengaruhi oleh kondisi hari ini, tetapi juga oleh kondisi beberapa hari sebelumnya.
+
+\section{HASIL DAN PEMBAHASAN}
+
+\subsection{Matriks Transisi}
+Analisis dilakukan berdasarkan data historis IHSG pada periode 3 Januari 2025 - 4 September 2026. Probabilitas dihitung dengan membagi frekuensi transisi spesifik ($N_{ij}$) dengan total observasi pada baris asal ($N_i$) melalui rumusan
+$$ \hat{P}_{ij} = \frac{N_{ij}}{\sum_{k} N_{ik}}. $$
+Berdasarkan komputasi data tersebut, diperoleh matriks peluang transisi $P$ yaitu
+$$
+P = 
+\begin{matrix}
+& \begin{matrix} -1 & \,\,\,\, 0 & \,\,\,\,\, 1 \end{matrix} \\
+\begin{matrix} -1 \\ 0 \\ 1 \end{matrix} &
+\begin{bmatrix}
+0.310 & 0.345 & 0.345 \\
+0.236 & 0.509 & 0.255 \\
+0.212 & 0.481 & 0.307
+\end{bmatrix}.
+\end{matrix}
+$$
+
+Berdasarkan aksioma probabilitas, sebuah matriks sah disebut matriks stokastik jika memenuhi dua syarat mutlak, yaitu (1) \textit{entri tak-negatif ($P_{ij} \ge 0$)} yang terpenuhi karena seluruh elemen $P_{ij}$ bernilai non-negatif, serta (2) \textit{jumlah peluang tiap baris ($\sum_{j} P_{ij} = 1$)} yang terpenuhi di mana hasil penjumlahan pada Baris 1 (``Turun'') adalah $0.310 + 0.345 + 0.345 = 1.000$, Baris 2 adalah $0.236 + 0.509 + 0.255 = 1.000$, dan Baris 3 adalah $0.212 + 0.481 + 0.307 = 1.000$. Dengan demikian, matriks $P$ sah sebagai matriks stokastik.
+
+\subsection{Proyeksi Probabilitas}
+Untuk memproyeksikan probabilitas pergerakan pasar beberapa hari ke depan, diaplikasikan persamaan Chapman-Kolmogorov. Probabilitas transisi $n$-langkah direpresentasikan melalui operasi perkalian matriks ($P^n$).
+
+\subsubsection*{2.2.1 Proyeksi 2 Hari ($n=2$)}
+Pada proses perhitungan, setiap elemen $P^2_{ij}$ dihitung sebagai jumlah hasil kali baris ke-$i$ matriks $P$ dengan kolom ke-$j$ matriks $P$. Sebagai contoh, perhitungan untuk elemen $(-1,-1)$ menghasilkan nilai
+\begin{align*}
+P^2(-1,-1) &= (0.310)(0.310) + (0.345)(0.236) + (0.345)(0.212) \\
+&= 0.0961 + 0.08142 + 0.07314 = 0.251.
+\end{align*}
+Selanjutnya, dengan mengaplikasikan cara yang sama untuk seluruh elemen matriks, diperoleh matriks probabilitas transisi dua langkah 
+$$
+P^2 = P \times P = 
+\begin{bmatrix}
+0.310 & 0.345 & 0.345 \\
+0.236 & 0.509 & 0.255 \\
+0.212 & 0.481 & 0.307
+\end{bmatrix}^{2}
+=
+\begin{bmatrix}
+0.251 & 0.449 & 0.301 \\
+0.247 & 0.463 & 0.289 \\
+0.244 & 0.466 & 0.290
+\end{bmatrix}.
+$$
+
+\subsubsection*{2.2.2 Proyeksi 5 Hari ($n=5$)}
+Dengan prosedur perhitungan yang sama seperti pada proyeksi dua langkah, diperoleh matriks probabilitas transisi lima langkah sebesar
+
+$$
+P^5 = P^4 \times P = 
+\begin{bmatrix}
+0.251 & 0.449 & 0.301 \\
+0.247 & 0.463 & 0.289 \\
+0.244 & 0.466 & 0.290
+\end{bmatrix}^{2}
+\begin{bmatrix}
+0.310 & 0.345 & 0.345 \\
+0.236 & 0.509 & 0.255 \\
+0.212 & 0.481 & 0.307
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.247 & 0.460 & 0.292 \\
+0.247 & 0.460 & 0.292 \\
+0.247 & 0.460 & 0.292
+\end{bmatrix}.
+$$
+
+\subsubsection{Interpretasi Hasil}
+Pada perkiraan hari kedua ($P^2$), peluang di setiap baris mulai terlihat mirip, yang menandakan bahwa pengaruh pergerakan harga sebelumnya mulai menghilang. Memasuki hari kelima ($n=5$), matriks tersebut mencapai titik stabil secara penuh. Hal ini menunjukkan bahwa gejolak harga IHSG hari ini baik naik maupun turun drastis akan hilang dalam lima hari perdagangan dan pasar kembali ke pola normalnya ($\pi$) dengan distribusi probabilitas
+$$ \pi = [0.247 \quad 0.460 \quad 0.292] $$
+serta menghasilkan ekspektasi batas arah pergerakan ($E[X]$) bernilai positif sebesar
+$$ E[X] = (-1)(0.247) + (0)(0.460) + (+1)(0.292) = +0.045. $$
+
+\section{SIMPULAN}
+Berdasarkan hasil perhitungan menggunakan Rantai Markov, IHSG tidak menunjukkan kecenderungan yang kuat untuk mengalami kenaikan atau penurunan yang cukup besar secara berturut-turut. Peluang terjadinya kenaikan atau penurunan pada hari berikutnya berada di sekitar 30\%. Dengan demikian, ketika IHSG mengalami perubahan yang cukup besar pada suatu hari perdagangan, kondisi pada hari berikutnya lebih berpeluang kembali menuju keadaan yang stabil daripada terus mengalami perubahan yang sama.
+Hasil penelitian juga menunjukkan bahwa pengaruh kondisi pasar yang relatif rendah. Berdasarkan analisis rantai Markov, diperlukan sekitar lima hari perdagangan hingga peluang pergerakan IHSG kembali mendekati pola probabilitas jangka panjang, terlepas dari kondisi awal pasar, yaitu yaitu sekitar 0,247 untuk turun, 0,460 untuk stabil, dan 0,292 untuk naik. Temuan ini menunjukkan bahwa pengaruh kondisi pasar sebelumnya terhadap pergerakan IHSG cenderung berkurang dalam waktu yang relatif singkat.
+
+\end{document}

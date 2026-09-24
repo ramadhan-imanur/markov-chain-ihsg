@@ -1,0 +1,3 @@
+Perhitungan Rantai Markov menunjukkan IHSG tidak memiliki kecenderungan kuat untuk terus naik atau turun tajam secara berturut-turut. Peluang kenaikan atau penurunan pada hari berikutnya hanya sekitar 30\%. Jika IHSG berubah signifikan pada suatu hari perdagangan, indeks lebih berpeluang kembali stabil di hari berikutnya daripada melanjutkan tren perubahan tersebut.
+
+Pengaruh kondisi pasar sebelumnya juga tergolong rendah dan relatif cepat memudar. Terlepas dari kondisi awal pasar, pergerakan IHSG hanya membutuhkan sekitar lima hari perdagangan untuk kembali mendekati pola probabilitas jangka panjangnya: 0,247 untuk turun, 0,460 untuk stabil, dan 0,292 untuk naik.
