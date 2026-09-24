@@ -71,10 +71,6 @@ markov-chain-ihsg/
 │   └── notebooks/
 │       ├── 01_data_collection.ipynb       # Akuisisi data dan eksplorasi return
 │       └── 02_markov_chain_modeling.ipynb # Estimasi matriks P, P^2, P^5, dan stasioner
-├── deskripsi/
-│   ├── deskripsi_tugas.md          # Petunjuk tugas perkuliahan
-│   ├── rule_agent.md               # Pedoman pengerjaan teknis
-│   └── struktur_tugas.md           # Sistematika penulisan laporan
 ├── report/
 │   ├── logo_uns.png                # Aset logo universitas untuk sampul
 │   ├── laporan.tex                 # Sumber naskah laporan format LaTeX

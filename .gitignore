@@ -44,3 +44,8 @@ report/*.fdb_latexmk
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ==================================================
+# Project Specific Ignored Folders
+# ==================================================
+deskripsi/
